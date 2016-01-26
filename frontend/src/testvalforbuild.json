@@ -1,0 +1,60 @@
+{
+    "build":{
+        "config": "branches/0.6.x", 
+        "id": 14, 
+        "platform": "Linux", 
+        "rev": 1574, 
+        "rev_time": "Mon, 21 Sep 2015 10:32:11 GMT", 
+        "slave": "domu-12-31-39-0b-bd-44 (54.224.94.46)", 
+        "started": "Mon, 21 Sep 2015 12:00:00 GMT", 
+        "status": "Succes", 
+        "steps": [
+            {
+            "build": 14, 
+            "description": "", 
+            "filename": "/link/to/log", 
+            "name": "enviroment", 
+            "started": "Mon, 21 Sep 2015 12:00:00 GMT", 
+            "status": "Succes", 
+            "stopped": "Mon, 21 Sep 2015 12:00:00 GMT"
+            }, 
+            {
+            "build": 14, 
+            "description": "", 
+            "filename": "/link/to/log", 
+            "name": "checkout", 
+            "started": "Mon, 21 Sep 2015 12:00:00 GMT", 
+            "status": "Succes", 
+            "stopped": "Mon, 21 Sep 2015 12:00:00 GMT"
+            }, 
+            {
+            "build": 14, 
+            "description": "", 
+            "filename": "/link/to/log", 
+            "name": "build", 
+            "started": "Mon, 21 Sep 2015 12:00:00 GMT", 
+            "status": "Succes", 
+            "stopped": "Mon, 21 Sep 2015 12:00:00 GMT"
+            }, 
+            {
+            "build": 14, 
+            "description": "", 
+            "filename": "/link/to/log", 
+            "name": "test", 
+            "started": "Mon, 21 Sep 2015 12:00:00 GMT", 
+            "status": "Succes", 
+            "stopped": "Mon, 21 Sep 2015 12:00:00 GMT"
+            }, 
+            {
+            "build": 14, 
+            "description": "", 
+            "filename": "/link/to/log", 
+            "name": "dist", 
+            "started": "Mon, 21 Sep 2015 12:00:00 GMT", 
+            "status": "Succes", 
+            "stopped": "Mon, 21 Sep 2015 12:00:00 GMT"
+            }
+        ], 
+        "stopped": "Mon, 21 Sep 2015 12:21:45 GMT"
+        }
+}
