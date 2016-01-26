@@ -1,10 +1,9 @@
-
 export interface BittenStep{
     id:number,
-    changeset: number,
+    name: string,
     description: string,
-    startdate: Date,
-    stoppeddate: Date,
+    started: Date,
+    stopped: Date,
     status: string,
-    linktolog: string,
+    linktolog: string
 }

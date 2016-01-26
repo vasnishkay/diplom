@@ -3,11 +3,12 @@ import bittenStep = require('./bittenstep');
 
 export interface BittenBuild{
     id : number,
-    changeset : number,
-    startdate: Date,
-    stoppeddate: Date,
+    rev : number,
+    rev_time: Date,
+    platform: string,
+    started: Date,
+    stopped: Date,
     status: string,
     slave: string,
-    platform: string,
     steps: bittenStep.BittenStep[]
 }
