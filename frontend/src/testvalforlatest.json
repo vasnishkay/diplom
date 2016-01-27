@@ -1,5 +1,5 @@
 {
-  "latestBuild": {
+  "latestBuilds": [{
     "config": "branches/0.6.x", 
     "id": 14, 
     "platform": "Linux", 
@@ -9,5 +9,15 @@
     "started": "Mon, 21 Sep 2015 12:00:00 GMT", 
     "status": "Succes", 
     "stopped": "Mon, 21 Sep 2015 12:21:45 GMT"
-  }
+  },{
+    "config": "branches/0.6.x", 
+    "id": 15, 
+    "platform": "Windows", 
+    "rev": 1574, 
+    "rev_time": "Mon, 21 Sep 2015 10:32:11 GMT", 
+    "slave": "domu-12-31-39-0b-bd-44 (54.224.94.46)", 
+    "started": "Mon, 21 Sep 2015 12:00:00 GMT", 
+    "status": "Succes", 
+    "stopped": "Mon, 21 Sep 2015 12:21:45 GMT"
+  }]
 }
