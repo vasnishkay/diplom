@@ -6,13 +6,28 @@ import {BuildService} from './build_service';
 @Component({
   selector: 'bitten-app',
   template: `
-  <!-- <h3 class="builds"><a href="/buildlist">Latest Build</a> for {{latestBuilds[0].config}}</h3> -->
+  <nav class="navbar navbar-default">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">Bitten Hat</a>
+    </div>
+    <div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Latest builds</a></li>
+            <li><a href="#">Builds list</a></li>
+        </ul>
+    </div>
+  </nav>
+  <div *ngIf="latestBuilds.length<=0">
+    <p>No data to display!</p>
+  </div>
+  <div *ngIf="latestBuilds.length>0">
+  <h3 class="builds"><a href="/buildlist">Latest Build</a> for {{latestBuilds[0].config}}</h3>
   <table class="builds">
     <tbody>
         <tr>
             <th>
-                <!-- [{{latestBuilds[0].rev}}]
-                <p class="date">{{latestBuilds[0].rev_time.toUTCString()}}</p> -->
+                [{{latestBuilds[0].rev}}]
+                <p class="date">{{latestBuilds[0].rev_time.toUTCString()}}</p>
             </th>
             <td *ngFor="#latestBuild of latestBuilds" class="{{latestBuild.status.toLowerCase()}}">
                     <p><a href="/builds/{{latestBuild.id}}">{{latestBuild.platform}}</a></p>
@@ -22,7 +37,8 @@ import {BuildService} from './build_service';
             </td>
         </tr>
     </tbody>
-  </table>`,
+  </table>
+  </div>`,
   providers: [BuildService]
 })
 

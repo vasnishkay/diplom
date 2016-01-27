@@ -7,7 +7,7 @@
     "rev_time": "Mon, 21 Sep 2015 10:32:11 GMT", 
     "slave": "domu-12-31-39-0b-bd-44 (54.224.94.46)", 
     "started": "Mon, 21 Sep 2015 12:00:00 GMT", 
-    "status": "Succes", 
+    "status": "Success", 
     "stopped": "Mon, 21 Sep 2015 12:21:45 GMT"
   },{
     "config": "branches/0.6.x", 
@@ -17,7 +17,7 @@
     "rev_time": "Mon, 21 Sep 2015 10:32:11 GMT", 
     "slave": "domu-12-31-39-0b-bd-44 (54.224.94.46)", 
     "started": "Mon, 21 Sep 2015 12:00:00 GMT", 
-    "status": "Succes", 
+    "status": "Success", 
     "stopped": "Mon, 21 Sep 2015 12:21:45 GMT"
   }]
 }
