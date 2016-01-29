@@ -32,32 +32,32 @@ tbody {
     border-color: inherit;
 }
 
-table.builds th {
+th {
     padding: 0 1em 0 .25em;
     text-align: left;
     vertical-align: top;
 }
 
-table.builds th p {
+th p {
     color: #666;
     font-size: smaller;
     margin-top: 0;
 }
 
-table.builds td {
+td {
     color: #999;
     border: 1px solid;
     padding: .25em .5em;
     vertical-align: top;
 }
 
-table.builds td.success {
+.success {
     background: #9d9;
     border-color: #696;
     color: #393;
 }
 
-table.builds .status {
+.status {
     color: #000;
 }
 
@@ -70,4 +70,37 @@ table.builds .status {
 :link:hover, :visited:hover {
     background-color: #eee;
     color: #555;
+}
+
+.router-link-active{
+    color: #555;
+    background-color: #e7e7e7;
+}
+
+.listing {
+        clear: both;
+    border-bottom: 1px solid #d7d7d7;
+    border-collapse: collapse;
+    border-spacing: 0;
+    box-shadow: .2em .3em 1.5em #eee;
+    margin-top: 1em;
+    width: 100%;
+}
+
+table.listing thead th {
+    border: 1px solid #d7d7d7;
+    border-bottom-color: #999;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 2px .5em;
+    vertical-align: bottom;
+    white-space: nowrap;
+}
+
+th.chgset {
+    width: 5em;
+}
+
+body, th, tr {
+    font: normal 13px Verdana,Arial,'Bitstream Vera Sans',Helvetica,sans-serif;
 }

@@ -1,5 +1,4 @@
 export class BittenStep{
-    id:number;
     name: string;
     description: string;
     started: Date;

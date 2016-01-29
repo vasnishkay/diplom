@@ -1,7 +1,9 @@
 import {Component} from 'angular2/core';
-import {BittenBuild} from './bittenbuild';
-import {BittenStep} from './bittenstep';
+import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 import {BuildService} from './build_service';
+
+import {BittenLatest} from './latestbuild';
+import {BuildList} from './buildlist';
 
 @Component({
   selector: 'bitten-app',
@@ -12,58 +14,21 @@ import {BuildService} from './build_service';
     </div>
     <div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Latest builds</a></li>
-            <li><a href="#">Builds list</a></li>
+            <li><a [routerLink]="['LatestBuilds']">Latest builds</a></li>
+            <li><a [routerLink]="['BuildsList']">Builds list</a></li>
         </ul>
     </div>
   </nav>
-  <div *ngIf="latestBuilds.length<=0">
-    <p>No data to display!</p>
-  </div>
-  <div *ngIf="latestBuilds.length>0">
-  <h3 class="builds"><a href="/buildlist">Latest Build</a> for {{latestBuilds[0].config}}</h3>
-  <table class="builds">
-    <tbody>
-        <tr>
-            <th>
-                [{{latestBuilds[0].rev}}]
-                <p class="date">{{latestBuilds[0].rev_time.toUTCString()}}</p>
-            </th>
-            <td *ngFor="#latestBuild of latestBuilds" class="{{latestBuild.status.toLowerCase()}}">
-                    <p><a href="/builds/{{latestBuild.id}}">{{latestBuild.platform}}</a></p>
-                    <p>{{latestBuild.started.toUTCString()}}</p>
-                    <p>{{latestBuild.slave}}</p>
-                    <p class="status"><b>{{latestBuild.status}}</b></p>
-            </td>
-        </tr>
-    </tbody>
-  </table>
-  </div>`,
-  providers: [BuildService]
+  <router-outlet></router-outlet>`,
+  providers: [BuildService],
+  directives: [ROUTER_DIRECTIVES]
 })
 
-export class BittenApp{
-    latestBuilds: BittenBuild[] = [];
-    //latestBuilds: BittenBuild[] = [{id: 14, config: 'branches/0.6.x', platform: 'Linux', rev: 1574, rev_time: new Date("Mon, 21 Sep 2015 10:32:11 GMT"), slave: 'domu-12-31-39-0b-bd-44 (54.224.94.46)', started: new Date("Mon, 21 Sep 2015 12:00:00 GMT"), status: 'Success', stopped: new Date("Mon, 21 Sep 2015 12:21:45 GMT")}, {id: 14, config: 'branches/0.6.x', platform: 'Windows', rev: 1574, rev_time: new Date("Mon, 21 Sep 2015 10:32:11 GMT"), slave: 'domu-12-31-39-0b-bd-44 (54.224.94.46)', started: new Date("Mon, 21 Sep 2015 12:00:00 GMT"), status: 'Success', stopped: new Date("Mon, 21 Sep 2015 12:21:45 GMT")}];
-    
-    constructor(private _buildService: BuildService){
-        this._buildService.getLatestBuilds().subscribe(data =>{
-            this.latestBuilds = [];
-            for(var i = 0; i<data.latestBuilds.length; i++){
-                var build = new BittenBuild();
-                build.id = data.latestBuilds[i].id;
-                build.rev = data.latestBuilds[i].rev;
-                build.rev_time = new Date(data.latestBuilds[i].rev_time);
-                build.platform = data.latestBuilds[i].platform;
-                build.config = data.latestBuilds[i].config;
-                build.started = new Date(data.latestBuilds[i].started);
-                build.stopped = new Date(data.latestBuilds[i].stopped);
-                build.status = data.latestBuilds[i].status;
-                build.slave = data.latestBuilds[i].slave;
-                build.steps = [];
-                this.latestBuilds.push(build);
-            }
-        });
-    }
-}
+@RouteConfig([
+    { path: '/latest', name: 'LatestBuilds', component: BittenLatest, useAsDefault: true},
+    { path:'/builds', name:'BuildsList', component: BuildList}
+])
+
+
+export class BittenApp{ }
 
