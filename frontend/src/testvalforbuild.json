@@ -12,7 +12,7 @@
             {
             "build": 14, 
             "description": "", 
-            "filename": "/link/to/log", 
+            "linktolog": "/link/to/log", 
             "name": "enviroment", 
             "started": "Mon, 21 Sep 2015 12:00:00 GMT", 
             "status": "Success", 
@@ -21,7 +21,7 @@
             {
             "build": 14, 
             "description": "", 
-            "filename": "/link/to/log", 
+            "linktolog": "/link/to/log", 
             "name": "checkout", 
             "started": "Mon, 21 Sep 2015 12:00:00 GMT", 
             "status": "Success", 
@@ -30,7 +30,7 @@
             {
             "build": 14, 
             "description": "", 
-            "filename": "/link/to/log", 
+            "linktolog": "/link/to/log", 
             "name": "build", 
             "started": "Mon, 21 Sep 2015 12:00:00 GMT", 
             "status": "Success", 
@@ -39,7 +39,7 @@
             {
             "build": 14, 
             "description": "", 
-            "filename": "/link/to/log", 
+            "linktolog": "/link/to/log", 
             "name": "test", 
             "started": "Mon, 21 Sep 2015 12:00:00 GMT", 
             "status": "Success", 
@@ -48,7 +48,7 @@
             {
             "build": 14, 
             "description": "", 
-            "filename": "/link/to/log", 
+            "linktolog": "/link/to/log", 
             "name": "dist", 
             "started": "Mon, 21 Sep 2015 12:00:00 GMT", 
             "status": "Success", 

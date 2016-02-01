@@ -21,7 +21,7 @@ import {BuildService} from './build_service';
     <tr *ngFor="#row of list">
     <td>{{row.rev}}</td>
     <td *ngFor="#build of row.builds">
-                    <span><a href="/builds/{{build.id}}">{{build.id}}</a></span> <span class="status"><b>{{build.status}}</b></span>
+                    <span><a class="link" (click)="onBuildClick(build)">{{build.id}}</a></span> <span class="status"><b>{{build.status}}</b></span>
                     <p>{{build.slave}}</p>
                     <p>{{build.started.toUTCString()}}</p>
                     <p *ngFor="#step of build.steps" class="{{step.status.toLowerCase()}}">{{step.name}}</p>
@@ -36,7 +36,7 @@ import {BuildService} from './build_service';
 export class BuildList{
     list: any = [];
     
-    constructor(private _buildService: BuildService){
+    constructor(private _buildService: BuildService, private _router: Router){
         this._buildService.getList(0).subscribe(data => {
             for(var k = 0; k<data.list.length; k++){
                 var list = data.list[k].build
@@ -67,5 +67,9 @@ export class BuildList{
                 }
                 this.list.push({'rev': build.rev, 'builds': buildList});
             }});
+    }
+    
+    onBuildClick(build: BittenBuild){
+        this._router.navigate(['BuildDetails', {id: build.id}]);
     }
 }

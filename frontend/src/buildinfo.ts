@@ -12,7 +12,21 @@ import {BuildService} from './build_service';
 })
 
 @View({
-    template: `Hello`,
+    template: `
+    <div *ngIf="build" class="build">
+    <dl>
+        <h1>Build {{build.id}} - {{build.status}}</h1>
+        <p><b>Platform:</b> {{build.platform}}</p>
+        <p><b>Build by:</b> {{build.slave}}</p>
+        <p><b>Started:</b> {{build.started.toGMTString()}}
+        <p><b>Stopped:</b> {{build.stopped.toGMTString()}}</p>
+    </dl>
+    <div *ngFor="#step of build.steps">
+        <h2>{{step.name}}</h2>
+        <span>log</span>
+        <textbox>{{step.linktolog}}</textbox>
+    </div>
+    </div>`,
     directives: [CORE_DIRECTIVES]
 })
 
@@ -35,7 +49,6 @@ export class BuildInfo {
             for(var i = 0; i< data.build.steps.length; i++)
             {
                 var step = new BittenStep();
-                step.id = data.build.steps[i].id;
                 step.name = data.build.steps[i].name;
                 step.description = data.build.steps[i].description;
                 step.started = new Date(data.build.steps[i].started);

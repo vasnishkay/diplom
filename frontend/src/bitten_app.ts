@@ -4,6 +4,7 @@ import {BuildService} from './build_service';
 
 import {BittenLatest} from './latestbuild';
 import {BuildList} from './buildlist';
+import {BuildInfo} from './buildinfo';
 
 @Component({
   selector: 'bitten-app',
@@ -26,7 +27,8 @@ import {BuildList} from './buildlist';
 
 @RouteConfig([
     { path: '/latest', name: 'LatestBuilds', component: BittenLatest, useAsDefault: true},
-    { path:'/builds', name:'BuildsList', component: BuildList}
+    { path:'/builds', name:'BuildsList', component: BuildList},
+    { path:'/build/:id', name: 'BuildDetails', component: BuildInfo}
 ])
 
 

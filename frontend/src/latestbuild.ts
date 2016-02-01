@@ -1,5 +1,5 @@
 import {Component} from 'angular2/core';
-
+import {Router} from 'angular2/router';
 import {BittenBuild} from './bittenbuild';
 import {BittenStep} from './bittenstep';
 import {BuildService} from './build_service';
@@ -8,7 +8,7 @@ import {BuildService} from './build_service';
   selector: 'bitten-latest',
   template: `
   <div *ngIf="latestBuilds.length>0">
-  <h3 class="builds"><a href="#">Latest Build</a> for {{latestBuilds[0].config}}</h3>
+  <h3 class="builds"><a href="#"  >Latest Build</a> for {{latestBuilds[0].config}}</h3>
   <table class="builds">
     <tbody>
         <tr>
@@ -33,7 +33,7 @@ export class BittenLatest{
     latestBuilds: BittenBuild[] = [];
     //latestBuilds: BittenBuild[] = [{id: 14, config: 'branches/0.6.x', platform: 'Linux', rev: 1574, rev_time: new Date("Mon, 21 Sep 2015 10:32:11 GMT"), slave: 'domu-12-31-39-0b-bd-44 (54.224.94.46)', started: new Date("Mon, 21 Sep 2015 12:00:00 GMT"), status: 'Success', stopped: new Date("Mon, 21 Sep 2015 12:21:45 GMT")}, {id: 14, config: 'branches/0.6.x', platform: 'Windows', rev: 1574, rev_time: new Date("Mon, 21 Sep 2015 10:32:11 GMT"), slave: 'domu-12-31-39-0b-bd-44 (54.224.94.46)', started: new Date("Mon, 21 Sep 2015 12:00:00 GMT"), status: 'Success', stopped: new Date("Mon, 21 Sep 2015 12:21:45 GMT")}];
     
-    constructor(private _buildService: BuildService){
+    constructor(private _buildService: BuildService, private _router: Router){
         this._buildService.getLatestBuilds().subscribe(data =>{
             this.latestBuilds = [];
             for(var i = 0; i<data.latestBuilds.length; i++){
@@ -52,5 +52,9 @@ export class BittenLatest{
             }
         });
     }
+    
+    // onClick(){
+    //     this._router.navigate(['BuildsList'])
+    // }
 }
 
